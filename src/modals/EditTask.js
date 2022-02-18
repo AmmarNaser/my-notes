@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Button,
   Modal,
@@ -11,7 +11,7 @@ import {
   Label,
 } from "reactstrap";
 
-const CreateTask = ({ toggle, modal, save }) => {
+const EditTask = ({ toggle, modal, obj, update }) => {
   const [taskName, setTaskName] = useState(" ");
   const [description, setDescription] = useState(" ");
 
@@ -24,17 +24,23 @@ const CreateTask = ({ toggle, modal, save }) => {
       setDescription(value);
     }
   };
-  const savehandler = (e) => {
+  const updateHandler = (e) => {
     e.preventDefault();
-    let taskObj = {};
-    taskObj["Name"] = taskName;
-    taskObj["Description"] = description;
-    save(taskObj);
+    let tempObj = {};
+    tempObj["Name"] = taskName;
+    tempObj["Description"] = description;
+    update(tempObj);
   };
+
+  useEffect(() => {
+    setTaskName(obj.Name);
+    setDescription(obj.Description);
+  }, []);
+
   return (
     <>
       <Modal centered scrollable isOpen={modal} toggle={toggle}>
-        <ModalHeader toggle={toggle}>New Task</ModalHeader>
+        <ModalHeader toggle={toggle}>Update Task</ModalHeader>
         <ModalBody>
           <Form>
             <FormGroup>
@@ -63,8 +69,8 @@ const CreateTask = ({ toggle, modal, save }) => {
           </Form>
         </ModalBody>
         <ModalFooter>
-          <Button color="primary" onClick={savehandler}>
-            Create
+          <Button color="primary" onClick={updateHandler}>
+            Update
           </Button>{" "}
           <Button onClick={toggle}>Cancel</Button>
         </ModalFooter>
@@ -73,4 +79,4 @@ const CreateTask = ({ toggle, modal, save }) => {
   );
 };
 
-export default CreateTask;
+export default EditTask;
