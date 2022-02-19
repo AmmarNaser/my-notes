@@ -1,6 +1,6 @@
 .card-wrapper {
   width: 270px;
-  height: 200px;
+  height: fit-content;
   box-shadow: 0px 3px 50px #a5a5a5;
   display: flex;
   flex-wrap: wrap;
@@ -54,9 +54,8 @@
 .discription {
   max-width: fit-content;
   max-height: fit-content;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: start;
-  align-items: flex-start;
+  text-overflow: ellipsis;
+  display: inline-block;
+  word-wrap: break-word;
   overflow: hidden;
 }

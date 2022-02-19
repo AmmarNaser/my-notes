@@ -61,7 +61,7 @@ const TodoList = () => {
           <ListCard
             taskObj={obj}
             index={index}
-            key="{card}"
+            key={index}
             deleteTask={deleteTask}
             update={updateListArray}
           />
