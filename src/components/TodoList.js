@@ -46,14 +46,14 @@ const TodoList = () => {
   return (
     <>
       <div className="header text-center">
-        <h1 className="">TodoList</h1>
+        <h1 className="">Todo List</h1>
         <button
           onClick={() => {
             setModal(true);
           }}
-          className=" btn btn-primary add-button"
+          className="btn btn-outline-primary"
         >
-          New
+          <strong>New</strong>
         </button>
       </div>
       <div className="card-container">
