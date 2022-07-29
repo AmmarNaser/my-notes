@@ -11,15 +11,15 @@ import {
   Label,
 } from "reactstrap";
 
-const EditTask = ({ toggle, modal, obj, update }) => {
-  const [taskName, setTaskName] = useState(" ");
+const EditNote = ({ toggle, modal, obj, update }) => {
+  const [NoteName, setNoteName] = useState(" ");
   const [description, setDescription] = useState(" ");
 
   const changeHandler = (e) => {
     const { name, value } = e.target;
 
-    if (name === "taskName") {
-      setTaskName(value);
+    if (name === "NoteName") {
+      setNoteName(value);
     } else {
       setDescription(value);
     }
@@ -27,30 +27,30 @@ const EditTask = ({ toggle, modal, obj, update }) => {
   const updateHandler = (e) => {
     e.preventDefault();
     let tempObj = {};
-    tempObj["Name"] = taskName;
+    tempObj["Name"] = NoteName;
     tempObj["Description"] = description;
     update(tempObj);
   };
 
   useEffect(() => {
-    setTaskName(obj.Name);
+    setNoteName(obj.Name);
     setDescription(obj.Description);
-  }, []);
+  }, [obj.Description, obj.Name]);
 
   return (
     <>
       <Modal centered scrollable isOpen={modal} toggle={toggle}>
-        <ModalHeader toggle={toggle}>Update Task</ModalHeader>
+        <ModalHeader toggle={toggle}>Update Note</ModalHeader>
         <ModalBody>
           <Form>
             <FormGroup>
-              <Label for="">Task Name</Label>
+              <Label for="">Note Name</Label>
               <Input
                 id=""
-                name="taskName"
+                name="NoteName"
                 placeholder="with a placeholder"
                 type="text"
-                value={taskName}
+                value={NoteName}
                 onChange={changeHandler}
               />
             </FormGroup>
@@ -79,4 +79,4 @@ const EditTask = ({ toggle, modal, obj, update }) => {
   );
 };
 
-export default EditTask;
+export default EditNote;
