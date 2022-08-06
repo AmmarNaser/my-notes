@@ -1,11 +1,11 @@
-import TodoList from "./components/TodoList";
+import NoteList from "./components/NoteList";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <TodoList />
+      <NoteList />
     </div>
   );
 }

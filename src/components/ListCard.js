@@ -1,20 +1,20 @@
 import React, { useState } from "react";
 import "./ListCard.css";
 import { colors } from "./color";
-import EditTask from "../modals/EditTask";
+import EditNote from "../modals/EditNote";
 
-const ListCard = ({ taskObj, index, deleteTask, update }) => {
+const ListCard = ({ taskObj, index, deleteNote, update }) => {
   const [modal, setModal] = useState(false);
 
   const toggle = () => {
     setModal(!modal);
   };
-  const updateTask = (obj) => {
+  const updateNote = (obj) => {
     update(obj, index);
   };
 
   const deleteHandler = () => {
-    deleteTask(index);
+    deleteNote(index);
   };
 
   const addHandler = () => {
@@ -51,10 +51,10 @@ const ListCard = ({ taskObj, index, deleteTask, update }) => {
           ></i>
         </div>
       </div>
-      <EditTask
+      <EditNote
         toggle={toggle}
         modal={modal}
-        update={updateTask}
+        update={updateNote}
         obj={taskObj}
       />
     </div>

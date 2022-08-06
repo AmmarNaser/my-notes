@@ -11,7 +11,7 @@ import {
   Label,
 } from "reactstrap";
 
-const CreateTask = ({ toggle, modal, save }) => {
+const CreateNote = ({ toggle, modal, save }) => {
   const [taskName, setTaskName] = useState(" ");
   const [description, setDescription] = useState(" ");
 
@@ -38,7 +38,7 @@ const CreateTask = ({ toggle, modal, save }) => {
         <ModalBody>
           <Form>
             <FormGroup>
-              <Label for="">Task Name</Label>
+              <Label for="">Note Name</Label>
               <Input
                 id=""
                 name="taskName"
@@ -73,4 +73,4 @@ const CreateTask = ({ toggle, modal, save }) => {
   );
 };
 
-export default CreateTask;
+export default CreateNote;

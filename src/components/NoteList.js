@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from "react";
-import "./TodoList.css";
-import CreateTask from "../modals/CreateTask";
+import "./NoteList.css";
+import CreateNote from "../modals/CreateNote";
 import ListCard from "./ListCard";
 
-const TodoList = () => {
+const NoteList = () => {
   const [modal, setModal] = useState(false);
-  const [taskList, setTaskList] = useState([]);
+  const [NoteList, setNoteList] = useState([]);
 
   useEffect(() => {
-    const arr = localStorage.getItem("taskList");
+    const arr = localStorage.getItem("NoteList");
 
     if (arr) {
       const obj = JSON.parse(arr);
-      setTaskList(obj);
+      setNoteList(obj);
     }
   }, []);
   const toggle = () => {
@@ -20,33 +20,33 @@ const TodoList = () => {
   };
 
   const updateListArray = (obj, index) => {
-    let tempList = taskList;
+    let tempList = NoteList;
     tempList[index] = obj;
-    localStorage.setItem("taskList", JSON.stringify(tempList));
-    setTaskList(tempList);
+    localStorage.setItem("NoteList", JSON.stringify(tempList));
+    setNoteList(tempList);
     window.location.reload();
   };
 
-  const saveTask = (taskObj) => {
-    let tempList = taskList;
+  const saveNote = (taskObj) => {
+    let tempList = NoteList;
     tempList.push(taskObj);
-    localStorage.setItem("taskList", JSON.stringify(tempList));
-    setTaskList(tempList);
+    localStorage.setItem("NoteList", JSON.stringify(tempList));
+    setNoteList(tempList);
     setModal(false);
   };
 
-  const deleteTask = (index) => {
-    const tempList = taskList;
+  const deleteNote = (index) => {
+    const tempList = NoteList;
     tempList.splice(index, 1);
-    localStorage.setItem("taskList", JSON.stringify(tempList));
-    setTaskList(tempList);
+    localStorage.setItem("NoteList", JSON.stringify(tempList));
+    setNoteList(tempList);
     window.location.reload();
   };
 
   return (
     <>
       <div className="header text-center">
-        <h1 className="">Todo List</h1>
+        <h1 className="">Notes List</h1>
         <button
           onClick={() => {
             setModal(true);
@@ -57,19 +57,19 @@ const TodoList = () => {
         </button>
       </div>
       <div className="card-container">
-        {taskList.map((obj, index) => (
+        {NoteList.map((obj, index) => (
           <ListCard
             taskObj={obj}
             index={index}
             key={index}
-            deleteTask={deleteTask}
+            deleteNote={deleteNote}
             update={updateListArray}
           />
         ))}
       </div>
-      <CreateTask toggle={toggle} modal={modal} save={saveTask} />
+      <CreateNote toggle={toggle} modal={modal} save={saveNote} />
     </>
   );
 };
 
-export default TodoList;
+export default NoteList;
