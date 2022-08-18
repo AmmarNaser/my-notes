@@ -46,7 +46,7 @@ const NoteList = () => {
   return (
     <>
       <div className="header text-center">
-        <h1 className="">Notes List</h1>
+        <h1 className="">Notes</h1>
         <button
           onClick={() => {
             setModal(true);
