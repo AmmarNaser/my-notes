@@ -28,14 +28,7 @@ const ListCard = ({ taskObj, index, deleteNote, update }) => {
         style={{ backgroundColor: colors[index % 5].primaryColor }}
       ></div>
       <div className="task-holder">
-        <span
-          className="card-header"
-          style={{
-            backgroundColor: colors[index % 5].secondaryColor,
-          }}
-        >
-          {taskObj.Name}
-        </span>
+        <span className="card-header">{taskObj.Name}</span>
         <div className="m-4  discription">{taskObj.Description}</div>
 
         <div className="icon-container">

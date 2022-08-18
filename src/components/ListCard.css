@@ -7,7 +7,7 @@
   flex-wrap: wrap;
   margin: 10px;
   border-radius: 5px;
-  background-color: #ffffff;
+  background-color: #faf9f9;
   position: relative;
 }
 
@@ -29,19 +29,21 @@
 
 .card-header {
   margin-top: 10px;
+  margin-left: 10px;
   margin-bottom: 10px;
   max-width: fit-content;
   height: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 1rem !important;
+  font-weight: bold;
+  font-size: large;
+  background-color: #faf9f9 !important;
 }
 
 .icon-container {
   width: 50px;
   position: absolute;
-
   right: 20px;
   bottom: 20px;
   display: flex;

@@ -1,12 +1,14 @@
 * {
-  margin: 0;
-  padding: 0;
+  margin: 0px;
+  padding: 0px;
   box-sizing: border-box;
 }
 .App {
   display: flex;
+  flex-wrap: wrap;
+  min-height: 100vh;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgba(198, 198, 198, 0.43);
+  background-color: #ebebeb;
 }

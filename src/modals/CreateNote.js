@@ -1,76 +1,84 @@
 import React, { useState } from "react";
-import {
-  Button,
-  Modal,
-  ModalBody,
-  ModalFooter,
-  ModalHeader,
-  Input,
-  Form,
-  FormGroup,
-  Label,
-} from "reactstrap";
+import "./CreateNote.css";
+const CreateNote = (props) => {
+  const [taskName, setTaskName] = useState("");
+  const [description, setDescription] = useState("");
 
-const CreateNote = ({ toggle, modal, save }) => {
-  const [taskName, setTaskName] = useState(" ");
-  const [description, setDescription] = useState(" ");
-
-  const changeHandler = (e) => {
-    const { name, value } = e.target;
-
-    if (name === "taskName") {
-      setTaskName(value);
-    } else {
-      setDescription(value);
-    }
+  const changeTitleHandler = (event) => {
+    setTaskName(event.target.value);
   };
-  const savehandler = (e) => {
-    e.preventDefault();
-    let taskObj = {};
-    taskObj["Name"] = taskName;
-    taskObj["Description"] = description;
-    save(taskObj);
+  const changeDesHandler = (event) => {
+    setDescription(event.target.value);
   };
+
+  const savehandler = (event) => {
+    // event.preventDefault();
+    const taskObj = {
+      Name: taskName,
+      Description: description,
+    };
+    props.save(taskObj);
+    setTaskName("");
+    setDescription("");
+    window.location.reload();
+  };
+
   return (
-    <>
-      <Modal centered scrollable isOpen={modal} toggle={toggle}>
-        <ModalHeader toggle={toggle}>New Task</ModalHeader>
-        <ModalBody>
-          <Form>
-            <FormGroup>
-              <Label for="">Note Name</Label>
-              <Input
-                id=""
-                name="taskName"
-                placeholder="with a placeholder"
-                type="text"
-                value={taskName}
-                onChange={changeHandler}
-              />
-            </FormGroup>
-            <FormGroup>
-              <Label for="exampleText" sm={2}>
-                Description
-              </Label>
-              <Input
-                id="exampleText"
-                name="description"
-                type="textarea"
-                value={description}
-                onChange={changeHandler}
-              />
-            </FormGroup>
-          </Form>
-        </ModalBody>
-        <ModalFooter>
-          <Button color="primary" onClick={savehandler}>
-            Create
-          </Button>{" "}
-          <Button onClick={toggle}>Cancel</Button>
-        </ModalFooter>
-      </Modal>
-    </>
+    <form className="Form" onSubmit={savehandler}>
+      <div className="FTit">
+        <label hidden>Note Name</label>
+        <input
+          className="Title"
+          id="notes"
+          name="taskName"
+          placeholder="Title"
+          type="text"
+          value={taskName}
+          onChange={changeTitleHandler}
+          autoComplete="off"
+          required
+        />
+      </div>
+      <div className="FDes">
+        <label sm={2} hidden>
+          Description
+        </label>
+        <textarea
+          className="Des"
+          id="exampleText"
+          name="description"
+          type="textarea"
+          value={description}
+          onChange={changeDesHandler}
+          placeholder="Description"
+        ></textarea>
+      </div>
+      <div className="FBut">
+        <button className="butt" type="submit">
+          Add
+        </button>
+      </div>
+    </form>
   );
 };
 
 export default CreateNote;
+
+// const { name, value } = e.target;
+
+// if (name === "taskName") {
+//   setTaskName(value);
+// } else {
+//   setDescription(value);
+// }
+// };
+// let taskObj = {};
+// taskObj["Name"] = taskName;
+// taskObj["Description"] = description;
+// save(taskObj);
+
+// {
+//   /* <button className="" onClick={toggle}>
+//   Cancel
+// </button> */
+// }

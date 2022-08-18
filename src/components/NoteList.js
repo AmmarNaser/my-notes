@@ -4,7 +4,7 @@ import CreateNote from "../modals/CreateNote";
 import ListCard from "./ListCard";
 
 const NoteList = () => {
-  const [modal, setModal] = useState(false);
+  // const [modal, setModal] = useState(false);
   const [NoteList, setNoteList] = useState([]);
 
   useEffect(() => {
@@ -15,9 +15,9 @@ const NoteList = () => {
       setNoteList(obj);
     }
   }, []);
-  const toggle = () => {
-    setModal(!modal);
-  };
+  // const toggle = () => {
+  //   setModal(!modal);
+  // };
 
   const updateListArray = (obj, index) => {
     let tempList = NoteList;
@@ -32,7 +32,6 @@ const NoteList = () => {
     tempList.push(taskObj);
     localStorage.setItem("NoteList", JSON.stringify(tempList));
     setNoteList(tempList);
-    setModal(false);
   };
 
   const deleteNote = (index) => {
@@ -46,15 +45,16 @@ const NoteList = () => {
   return (
     <>
       <div className="header text-center">
-        <h1 className="">Notes</h1>
-        <button
+        {/* <h1 className="">Notes</h1> */}
+        <CreateNote save={saveNote} />
+        {/* <button
           onClick={() => {
             setModal(true);
           }}
           className="btn btn-outline-primary"
         >
           <strong>New</strong>
-        </button>
+        </button> */}
       </div>
       <div className="card-container">
         {NoteList.map((obj, index) => (
@@ -67,7 +67,6 @@ const NoteList = () => {
           />
         ))}
       </div>
-      <CreateNote toggle={toggle} modal={modal} save={saveNote} />
     </>
   );
 };
