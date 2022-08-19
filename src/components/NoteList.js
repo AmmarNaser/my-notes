@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import "./NoteList.css";
 import CreateNote from "../modals/CreateNote";
 import ListCard from "./ListCard";
+import Masonry from "react-masonry-css";
 
 const NoteList = () => {
-  // const [modal, setModal] = useState(false);
   const [NoteList, setNoteList] = useState([]);
 
   useEffect(() => {
@@ -15,9 +15,6 @@ const NoteList = () => {
       setNoteList(obj);
     }
   }, []);
-  // const toggle = () => {
-  //   setModal(!modal);
-  // };
 
   const updateListArray = (obj, index) => {
     let tempList = NoteList;
@@ -41,31 +38,47 @@ const NoteList = () => {
     setNoteList(tempList);
     window.location.reload();
   };
-
+  const breakpointColumnsObj = {
+    default: 4,
+    1920: 5,
+    1820: 5,
+    1720: 5,
+    1620: 5,
+    1520: 5,
+    1420: 4,
+    1320: 4,
+    1220: 4,
+    1120: 4,
+    1080: 4,
+    980: 3,
+    880: 3,
+    820: 2,
+    720: 2,
+    700: 2,
+    500: 1,
+  };
   return (
     <>
       <div className="header text-center">
-        {/* <h1 className="">Notes</h1> */}
         <CreateNote save={saveNote} />
-        {/* <button
-          onClick={() => {
-            setModal(true);
-          }}
-          className="btn btn-outline-primary"
-        >
-          <strong>New</strong>
-        </button> */}
       </div>
+
       <div className="card-container">
-        {NoteList.map((obj, index) => (
-          <ListCard
-            taskObj={obj}
-            index={index}
-            key={index}
-            deleteNote={deleteNote}
-            update={updateListArray}
-          />
-        ))}
+        <Masonry
+          breakpointCols={breakpointColumnsObj}
+          className="my-masonry-grid"
+          columnClassName="my-masonry-grid_column"
+        >
+          {NoteList.map((obj, index) => (
+            <ListCard
+              taskObj={obj}
+              index={index}
+              key={index}
+              deleteNote={deleteNote}
+              update={updateListArray}
+            />
+          ))}{" "}
+        </Masonry>
       </div>
     </>
   );

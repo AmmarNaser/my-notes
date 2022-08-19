@@ -36,7 +36,6 @@ const CreateNote = (props) => {
           value={taskName}
           onChange={changeTitleHandler}
           autoComplete="off"
-          required
         />
       </div>
       <div className="FDes">
@@ -50,7 +49,7 @@ const CreateNote = (props) => {
           type="textarea"
           value={description}
           onChange={changeDesHandler}
-          placeholder="Description"
+          placeholder="Details"
         ></textarea>
       </div>
       <div className="FBut">

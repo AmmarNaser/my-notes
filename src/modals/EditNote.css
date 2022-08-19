@@ -1,0 +1,75 @@
+.ModalBody {
+  height: 25vh !important;
+  background-color: rgb(255, 255, 255);
+  border-radius: 0.5rem;
+  border: 0px !important ;
+  margin: 0.5rem 1.5rem;
+  padding: 0 !important;
+}
+.Header {
+  border: 0px !important;
+}
+
+.Footer {
+  border: 0ch !important;
+}
+.Forma {
+  height: 100%;
+  margin: 0%;
+}
+.Forma2 {
+  margin-bottom: 0.1rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  height: 25%;
+}
+.Input1 {
+  padding: 0.5rem;
+  margin: 0%;
+  height: 100%;
+  border-radius: 0.5rem 0.5rem 0rem 0rem;
+  border: 0ch;
+  background-color: #ebebeb;
+}
+.Forma3 {
+  margin-bottom: 0px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  height: 65%;
+}
+.TextArea {
+  padding: 0.5rem;
+  margin-top: 0%;
+  height: 100%;
+  border-radius: 0rem 0rem 0.5rem 0.5rem;
+  border: 0ch;
+  background-color: #ebebeb;
+}
+
+.Input1:focus,
+.TextArea:focus {
+  outline: none;
+}
+.Update {
+  border: 0ch;
+  padding: 0.3rem 0.7rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+}
+.Cancel {
+  border: 0ch;
+  padding: 0.3rem 0.7rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+}
+
+.Update:hover {
+  background-color: rgb(138, 138, 138);
+  color: #ebebeb;
+}
+.Cancel:hover {
+  background-color: rgb(213, 94, 94);
+  color: #ebebeb;
+}
