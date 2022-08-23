@@ -10,6 +10,14 @@ You can see this app on gh-pages : https://ammarnaser.github.io/my-notes/
 
 ![This is an image](./overview/pic.jpg)
 
+## Tech stack
+
+- HTML
+- CSS
+  -Reactstrap, Masonry.Css
+- Javascript
+  -Reactjs.
+
 ## Available Scripts
 
 | Command             | Description                          |
