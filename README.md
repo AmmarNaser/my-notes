@@ -14,9 +14,9 @@ You can see this app on gh-pages : https://ammarnaser.github.io/my-notes/
 
 - HTML
 - CSS
-  -Reactstrap, Masonry.Css
+  - Reactstrap, Masonry.Css
 - Javascript
-  -Reactjs.
+  - Reactjs.
 
 ## Available Scripts
 
