@@ -19,7 +19,10 @@ const NoteList = () => {
   const updateListArray = (obj, index) => {
     let tempList = NoteList;
     tempList[index] = obj;
-    localStorage.setItem("NoteList", JSON.stringify(tempList));
+    localStorage.setItem(
+      "NoteList",
+      JSON.stringify(tempList)
+    );
     setNoteList(tempList);
     window.location.reload();
   };
@@ -27,14 +30,20 @@ const NoteList = () => {
   const saveNote = (taskObj) => {
     let tempList = NoteList;
     tempList.push(taskObj);
-    localStorage.setItem("NoteList", JSON.stringify(tempList));
+    localStorage.setItem(
+      "NoteList",
+      JSON.stringify(tempList)
+    );
     setNoteList(tempList);
   };
 
   const deleteNote = (index) => {
     const tempList = NoteList;
     tempList.splice(index, 1);
-    localStorage.setItem("NoteList", JSON.stringify(tempList));
+    localStorage.setItem(
+      "NoteList",
+      JSON.stringify(tempList)
+    );
     setNoteList(tempList);
     window.location.reload();
   };
@@ -67,8 +76,7 @@ const NoteList = () => {
         <Masonry
           breakpointCols={breakpointColumnsObj}
           className="my-masonry-grid"
-          columnClassName="my-masonry-grid_column"
-        >
+          columnClassName="my-masonry-grid_column">
           {NoteList.map((obj, index) => (
             <ListCard
               taskObj={obj}

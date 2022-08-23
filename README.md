@@ -1,6 +1,10 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This app allwos you to add,edit and delete notes.
+
+## App page
+
+You can see this app on gh-pages : https://ammarnaser.github.io/my-notes/
 
 ## Available Scripts
 
